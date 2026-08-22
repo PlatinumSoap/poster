@@ -31,6 +31,7 @@
   marginheight="0">
   <center>
 
+    <!-- 1. TOP HEADER POLYGON IMAGE -->
     <svg
       width="100%"
       height="180"
@@ -59,6 +60,7 @@
 
     <br><br>
 
+    <!-- 2. TITLES & SUBTEXT -->
     <font
       face="Arial Black, Impact, sans-serif"
       size="7"
@@ -72,7 +74,7 @@
     <font
       face="Arial, Helvetica, sans-serif"
       size="5"
-      color="#008B60"><b>DROP   COVER   HOLD ON</b></font>
+      color="#008B60"><b>DROP &nbsp; COVER &nbsp; HOLD ON</b></font>
     <br><br>
     <font
       face="Arial, Helvetica, sans-serif"
@@ -85,11 +87,13 @@
       size="4">
     <br>
 
+    <!-- 3. TOP PRIMARY CARDS -->
     <svg
       width="90%"
       height="360"
       viewBox="0 0 900 360">
       
+      <!-- INDOORS POLYGON -->
       <polygon
         points="0,0 435,0 415,350 0,350"
         fill="#B3282D" />
@@ -130,6 +134,7 @@
           font-weight="bold">after the shaking stops!</tspan>
       </text>
 
+      <!-- OUTDOORS POLYGON -->
       <polygon
         points="465,0 900,0 900,350 485,350"
         fill="#008B60" />
@@ -174,11 +179,44 @@
       size="4">
     <br>
 
-    <img
-      src="456.png"
+    <!-- 4. BANNER IMAGE (CLEAN, SUBTLE STAR LINK) -->
+    <svg
       width="85%"
-      alt="Earthquake safety banner"
-      border="0">
+      height="450"
+      viewBox="0 0 1000 600"
+      preserveAspectRatio="xMidYMid meet">
+      
+      <!-- Base Image -->
+      <image
+        href="456.png"
+        width="1000"
+        height="600"
+        preserveAspectRatio="xMidYMid meet" />
+      
+      <!-- Clickable Red Star Mapping with Native Tooltip -->
+      <a
+        href="https://www.ndma.gov.in/earthquakes"
+        target="_blank">
+        <title>Visit NDMA India Earthquake Awareness</title>
+
+        <!-- Subtle, clean helper label -->
+        <text
+          x="160"
+          y="105"
+          fill="#B3282D"
+          font-family="Arial, Helvetica, sans-serif"
+          font-size="14"
+          font-weight="bold"
+          text-anchor="middle">(Click star for NDMA info)</text>
+
+        <!-- Clickable Area -->
+        <polygon
+          points="160,135 183,195 247,195 196,235 215,295 160,255 105,295 124,235 73,195 137,195"
+          fill="#FFFFFF"
+          fill-opacity="0"
+          cursor="pointer" />
+      </a>
+    </svg>
     <br><br><br>
 
     <hr
@@ -187,11 +225,13 @@
       size="4">
     <br><br>
 
+    <!-- 5. CRACKED-EARTH SCENARIOS -->
     <svg
       width="90%"
       height="750"
       viewBox="0 0 900 750">
       
+      <!-- Plate 1: In Bed -->
       <polygon
         points="10,10 435,0 415,160 440,240 410,355 180,365 20,340 0,180"
         fill="#FFFFFF"
@@ -245,6 +285,7 @@
           dy="22">before stepping out!</tspan>
       </text>
 
+      <!-- Plate 2: Driving -->
       <polygon
         points="465,0 890,10 900,190 880,350 710,360 480,345 450,235 480,150"
         fill="#FFFFFF"
@@ -295,6 +336,7 @@
           dy="20">fall on vehicle, wait for help.</tspan>
       </text>
 
+      <!-- Plate 3: Theater -->
       <polygon
         points="15,385 195,395 415,380 445,490 410,610 435,735 15,745 0,560"
         fill="#FFFFFF"
@@ -342,6 +384,7 @@
           dy="22">fallen debris or aftershocks.</tspan>
       </text>
 
+      <!-- Plate 4: Shore -->
       <polygon
         points="480,380 705,390 890,380 900,560 880,740 455,745 480,620 450,500"
         fill="#FFFFFF"
@@ -397,10 +440,11 @@
       size="4">
     <br>
 
+    <!-- 6. CONTACT -->
     <font
       face="Arial Black, Impact, sans-serif"
       size="5"
-      color="#562E1A">CONTACT & LOCATION</font>
+      color="#562E1A">CONTACT</font>
     <br><br>
     <font
       face="Arial, Helvetica, sans-serif"
@@ -408,34 +452,17 @@
       color="#7A4035">
       <a
         href="mailto:random@gmail.com"><b><font color="#7A4035">random@gmail.com</font></b></a>
-        |  
+      &nbsp;&nbsp;|&nbsp;&nbsp;
       <a
         href="tel:123456789"><b><font color="#7A4035">123456789</font></b></a>
-        |  
+      &nbsp;&nbsp;|&nbsp;&nbsp;
       <a
-        href="https://maps.google.com"
-        target="_blank"><b><u><font color="#7A4035">View Map Location</font></u></b></a>
+        href="https://www.google.com/maps/search/?api=1&query=Goa+College+of+Engineering+Farmagudi+Ponda+Goa"
+        target="_blank"><b><u><font color="#7A4035">GEC Goa</font></u></b></a>
     </font>
-    <br><br>
-    <map
-      name="posterMap">
-      <area
-        shape="rect"
-        coords="0,0,32,32"
-        href="https://maps.google.com"
-        target="_blank"
-        alt="View Map Location">
-    </map>
-    <img
-      src="favicon.png"
-      width="32"
-      height="32"
-      alt="Map icon"
-      usemap="#posterMap"
-      border="0"
-      align="middle">
     <br><br><br>
 
+    <!-- 7. BOTTOM FOOTER POLYGON IMAGE -->
     <svg
       width="100%"
       height="180"
