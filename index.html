@@ -179,7 +179,7 @@
       size="4">
     <br>
 
-    <!-- 4. BANNER IMAGE (PURE SVG WITH CLICKABLE STAR MAPPED TO NDMA INDIA) -->
+    <!-- 4. BANNER IMAGE (CLEAN, SUBTLE STAR LINK) -->
     <svg
       width="85%"
       height="450"
@@ -193,10 +193,23 @@
         height="600"
         preserveAspectRatio="xMidYMid meet" />
       
-      <!-- Clickable Red Star Mapping -->
+      <!-- Clickable Red Star Mapping with Native Tooltip -->
       <a
         href="https://www.ndma.gov.in/earthquakes"
         target="_blank">
+        <title>Visit NDMA India Earthquake Awareness</title>
+
+        <!-- Subtle, clean helper label -->
+        <text
+          x="160"
+          y="105"
+          fill="#B3282D"
+          font-family="Arial, Helvetica, sans-serif"
+          font-size="14"
+          font-weight="bold"
+          text-anchor="middle">(Click star for NDMA info)</text>
+
+        <!-- Clickable Area -->
         <polygon
           points="160,135 183,195 247,195 196,235 215,295 160,255 105,295 124,235 73,195 137,195"
           fill="#FFFFFF"
