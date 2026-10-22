@@ -4,65 +4,405 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Earthquake Preparedness Poster</title>
-  <meta name="description" content="Earthquake preparedness safety poster built entirely with HTML.">
-  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta name="description" content="Earthquake preparedness safety poster built with modern HTML and CSS.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  
+  <style>
+    /* CSS Variables for color palette */
+    :root {
+      --bg-color: #ECECEC;
+      --text-main: #562E1A;
+      --text-red: #B3282D;
+      --text-green: #008B60;
+      --text-brown: #7A4035;
+      --overlay-red: rgba(179, 40, 45, 0.3);
+      --font-display: "Arial Black", Impact, sans-serif;
+      --font-body: Arial, Helvetica, sans-serif;
+    }
+
+    /* Base Reset and Body Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    a {
+      color: var(--text-brown);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+
+    hr {
+      border: none;
+      height: 4px;
+      width: 85%;
+      margin: 2rem auto;
+    }
+    
+    .hr-red { background-color: var(--text-red); }
+    .hr-green { background-color: var(--text-green); }
+
+    /* Header & Footer Polygon Image Shapes */
+    .header-polygon, .footer-polygon {
+      width: 100%;
+      height: 180px;
+      background-image: url('123.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    
+    .header-polygon::after, .footer-polygon::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: var(--overlay-red);
+    }
+    
+    .header-polygon {
+      clip-path: polygon(0 0, 100% 0, 100% 66%, 0 100%);
+    }
+    
+    .footer-polygon {
+      clip-path: polygon(0 33%, 100% 0, 100% 100%, 0 100%);
+    }
+
+    /* Typography */
+    .title-wrapper {
+      margin: 2rem 0;
+    }
+    
+    .main-title {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+    
+    .main-title.dark { color: var(--text-main); }
+    .main-title.red { color: var(--text-red); }
+    
+    .subtitle {
+      font-size: 1.75rem;
+      color: var(--text-green);
+      font-weight: bold;
+      margin-top: 1.5rem;
+      letter-spacing: 2px;
+    }
+    
+    .subtext {
+      font-size: 1.25rem;
+      color: var(--text-brown);
+      margin-top: 1rem;
+    }
+
+    /* Top Primary Cards */
+    .primary-cards-container {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      width: 90%;
+      max-width: 900px;
+      margin: 0 auto;
+      color: #fff;
+    }
+    
+    .card-primary {
+      flex: 1;
+      padding: 2rem 3rem;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .card-primary h2 {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
+    }
+    
+    .card-primary p {
+      font-size: 1.15rem;
+      margin-bottom: 1rem;
+    }
+    
+    .card-indoors {
+      background-color: var(--text-red);
+      clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
+    }
+    
+    .card-outdoors {
+      background-color: var(--text-green);
+      clip-path: polygon(5% 0, 100% 0, 100% 100%, 10% 100%);
+    }
+
+    /* Middle Banner Image */
+    .banner-container {
+      position: relative;
+      width: 85%;
+      max-width: 1000px;
+      margin: 2rem auto;
+    }
+    
+    .banner-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .star-link {
+      position: absolute;
+      top: 20%;
+      left: 10%;
+      width: 15%;
+      height: 30%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-decoration: none;
+    }
+    
+    .star-link span {
+      color: var(--text-red);
+      font-weight: bold;
+      font-size: 0.9rem;
+      background: rgba(255,255,255,0.8);
+      padding: 2px 5px;
+      border-radius: 4px;
+      margin-bottom: 5px;
+    }
+    
+    .star-hotspot {
+      width: 100%;
+      height: 100%;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      cursor: pointer;
+    }
+
+    /* Scenario Grid */
+    .scenarios-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      width: 90%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .scenario-card {
+      background-color: #fff;
+      border: 2px solid var(--text-main);
+      padding: 1.5rem;
+      text-align: left;
+      position: relative;
+      min-height: 350px;
+    }
+    
+    /* Slightly wonky borders to mimic the original hand-drawn polygons */
+    .scenario-card:nth-child(1) { border-radius: 2% 5% 3% 4% / 3% 2% 4% 5%; }
+    .scenario-card:nth-child(2) { border-radius: 4% 2% 5% 3% / 5% 4% 2% 3%; }
+    .scenario-card:nth-child(3) { border-radius: 3% 4% 2% 5% / 2% 5% 3% 4%; }
+    .scenario-card:nth-child(4) { border-radius: 5% 3% 4% 2% / 4% 3% 5% 2%; }
+
+    .scenario-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    
+    .scenario-card:nth-child(odd) h3 { color: var(--text-red); }
+    .scenario-card:nth-child(even) h3 { color: var(--text-green); }
+    
+    .scenario-card p {
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .scenario-card img {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      width: 150px;
+      height: auto;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      margin: 3rem 0;
+    }
+    
+    .contact-section h2 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .contact-links {
+      font-size: 1.15rem;
+    }
+    
+    .contact-links a {
+      margin: 0 10px;
+    }
+    
+    .contact-links a u {
+      text-decoration: underline;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .primary-cards-container, .scenarios-grid {
+        flex-direction: column;
+        grid-template-columns: 1fr;
+      }
+      .card-indoors, .card-outdoors {
+        clip-path: none;
+        border-radius: 8px;
+      }
+      .main-title { font-size: 3rem; }
+    }
+  </style>
 </head>
-<body background="C:/Users/yashk/images/def.jpg" text="#6B4423" link="#C41E3A" vlink="#C41E3A" alink="#009B77">
-  <center>
-    <br><br>
-    <font face="Arial Black, Impact, sans-serif" size="7" color="#6B4423">EARTHQUAKE</font>
-    <br>
-    <font face="Arial Black, Impact, sans-serif" size="7" color="#C41E3A">PREPAREDNESS</font>
-    <br><br>
-    <font face="Arial, Helvetica, sans-serif" size="5" color="#009B77"><b>DROP &nbsp; COVER &nbsp; HOLD ON</b></font>
-    <br><br>
-    <font face="Arial, Helvetica, sans-serif" size="4" color="#6B4423">Be ready before the ground shakes.</font>
-    <br><br>
-    <hr width="85%" color="#C41E3A" size="5">
-    <br>
-    <table width="90%" border="0" cellpadding="25" cellspacing="0">
-      <tr>
-        <td width="50%" bgcolor="#C41E3A" align="center" valign="top">
-          <font face="Arial Black, Impact, sans-serif" size="6" color="#FFFFFF">INDOORS</font>
-          <br><br>
-          <font face="Arial, Helvetica, sans-serif" size="4" color="#FFFFFF">
-            <b>Stay inside.</b> Drop to the ground.<br>
-            Take cover under a sturdy desk or table.<br>
-            Hold on until the shaking stops.<br>
-            Stay away from windows, glass, and heavy furniture.<br>
-            Do not use elevators.
-          </font>
-        </td>
-        <td width="50%" bgcolor="#009B77" align="center" valign="top">
-          <font face="Arial Black, Impact, sans-serif" size="6" color="#FFFFFF">OUTDOORS</font>
-          <br><br>
-          <font face="Arial, Helvetica, sans-serif" size="4" color="#FFFFFF">
-            <b>Move to an open area</b> away from buildings,<br>
-            power lines, trees, and streetlights.<br>
-            Drop to the ground and cover your head and neck.<br>
-            Stay there until the shaking stops.
-          </font>
-        </td>
-      </tr>
-    </table>
-    <br><br>
-    <hr width="85%" color="#009B77" size="5">
-    <br>
-    <font face="Arial Black, Impact, sans-serif" size="5" color="#6B4423">CONTACT & LOCATION</font>
-    <br><br>
-    <font face="Arial, Helvetica, sans-serif" size="4" color="#6B4423">
+<body>
+
+  <!-- 1. TOP HEADER POLYGON IMAGE -->
+  <div class="header-polygon"></div>
+
+  <!-- 2. TITLES & SUBTEXT -->
+  <div class="title-wrapper">
+    <div class="main-title dark">EARTHQUAKE</div>
+    <div class="main-title red">PREPAREDNESS</div>
+    <div class="subtitle">DROP &nbsp; COVER &nbsp; HOLD ON</div>
+    <div class="subtext">Be Aware Before The Ground Shakes</div>
+  </div>
+  
+  <hr class="hr-red">
+
+  <!-- 3. TOP PRIMARY CARDS -->
+  <div class="primary-cards-container">
+    
+    <div class="card-primary card-indoors">
+      <h2>INDOORS</h2>
+      <p>Drop to the floor against an interior<br>
+      wall and protect your head and neck with<br>
+      your arms if you are not near a desk or table.</p>
+      <p><b>Do not go outside until well<br>
+      after the shaking stops!</b></p>
+    </div>
+
+    <div class="card-primary card-outdoors">
+      <h2>OUTDOORS</h2>
+      <p><b>Move to a clear area<br>
+      if you can safely do so.</b></p>
+      <p>Avoid buildings, power lines,<br>
+      and trees.</p>
+    </div>
+
+  </div>
+  
+  <hr class="hr-green">
+
+  <!-- 4. BANNER IMAGE -->
+  <div class="banner-container">
+    <img src="456.png" alt="Earthquake Safety Banner">
+    
+    <a href="https://www.ndma.gov.in/earthquakes" target="_blank" class="star-link" title="Visit NDMA India Earthquake Awareness">
+      <span>(Click star for NDMA info)</span>
+      <!-- Invisible clickable star zone overlay -->
+      <div class="star-hotspot"></div>
+    </a>
+  </div>
+
+  <hr class="hr-red">
+
+  <!-- 5. CRACKED-EARTH SCENARIOS -->
+  <div class="scenarios-grid">
+    
+    <!-- Plate 1: In Bed -->
+    <div class="scenario-card">
+      <h3>In bed</h3>
+      <p>Hold on and stay there, protecting<br>
+      your head with a pillow. You are<br>
+      less likely to be injured staying<br>
+      where you are.</p>
+      <p>Broken glass on the floor<br>
+      can cause injuries; be<br>
+      sure to put shoes on<br>
+      before stepping out!</p>
+      <img src="bearslip.png" alt="Bear in bed">
+    </div>
+
+    <!-- Plate 2: Driving -->
+    <div class="scenario-card">
+      <h3>Driving</h3>
+      <p>When able, safely pull over to the side<br>
+      of the road, stop, and set parking brake.<br>
+      Avoid overpasses, power lines, signs,<br>
+      trees, and falling hazards.</p>
+      <p>Stay inside the vehicle<br>
+      until shaking stops. If wires<br>
+      fall on vehicle, wait for help.</p>
+      <img src="bearcar.png" alt="Bear driving">
+    </div>
+
+    <!-- Plate 3: Theater -->
+    <div class="scenario-card">
+      <h3>In a public building or theater</h3>
+      <p>If in a theater seat, duck down and<br>
+      protect your head and neck with arms.<br>
+      Don't try to rush out until shaking stops.</p>
+      <p>Then walk out slowly,<br>
+      watching carefully for<br>
+      fallen debris or aftershocks.</p>
+      <img src="bearmovie.png" alt="Bear in theater">
+    </div>
+
+    <!-- Plate 4: Shore -->
+    <div class="scenario-card">
+      <h3>Near the shore</h3>
+      <p>If you feel a strong quake, hear a<br>
+      warning, or notice water withdrawing,<br>
+      evacuate immediately to higher ground.</p>
+      <p>Tsunami waves may<br>
+      continue for hours. Do not<br>
+      return until all-clear is given.</p>
+      <img src="bearbeach.png" alt="Bear near shore">
+    </div>
+
+  </div>
+
+  <hr class="hr-green">
+
+  <!-- 6. CONTACT -->
+  <div class="contact-section">
+    <h2>CONTACT</h2>
+    <div class="contact-links">
       <a href="mailto:random@gmail.com">random@gmail.com</a>
       &nbsp;&nbsp;|&nbsp;&nbsp;
       <a href="tel:123456789">123456789</a>
       &nbsp;&nbsp;|&nbsp;&nbsp;
-      <a href="https://www.google.com/maps/search/?api=1&query=Emergency+Assembly+Point">View Map Location</a>
-    </font>
-    <br><br>
-    <img src="/favicon.png" width="32" height="32" alt="Map icon" usemap="#posterMap">
-    <map name="posterMap">
-      <area shape="rect" coords="0,0,32,32" href="https://www.google.com/maps/search/?api=1&query=Emergency+Assembly+Point" alt="View Map Location">
-    </map>
-    <br><br><br>
-  </center>
+      <a href="https://www.google.com/maps/search/?api=1&query=Goa+College+of+Engineering+Farmagudi+Ponda+Goa" target="_blank"><u>GEC Goa</u></a>
+    </div>
+  </div>
+
+  <!-- 7. BOTTOM FOOTER POLYGON IMAGE -->
+  <div class="footer-polygon"></div>
+
 </body>
 </html>
